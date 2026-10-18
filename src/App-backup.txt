@@ -1,0 +1,398 @@
+import StudentCard from "./components/StudentCard";
+import Card from "./Card";
+import { useEffect, useMemo, useRef, useState } from "react";
+import DashBoard from "./DashBoard";
+import Login from "./Login";
+import "./App.css";
+import First from "./First";
+import Second from "./Second";
+import Third from "./Third";
+import withAuth from "./withAuth";
+import DashBoard1 from "./DashBoard1";
+import Products from "./Products";
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom"
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Students from "./pages/Students";
+
+
+function App() {
+
+  const [name,setName]=useState("");
+  const [isLoggedIn1,setIsLoggedIn1]=useState(false)
+  const ProtectedDashBoard=withAuth(DashBoard1,"DashBoard Page")
+  function Hello(){
+    return (
+      <h1>Hellooo Dear</h1>
+    )
+  }
+  function AddWelcome(Componant){
+    return function newComponant(){
+    return(
+      <>
+      <h1>Welcome!!</h1>
+      <Componant/>
+      </>
+    )
+  }
+  }
+  const NewHello=AddWelcome(Hello)
+  const [counttt,setCounttt]=useState(0);
+  const [textt,setTextt]=useState("");
+  console.log("rendering...");
+  const square=useMemo(()=>{
+    console.log("calculating...")
+    return counttt*counttt
+  },[counttt])
+  const [value,setValue]=useState("")
+  const preValue=useRef("");
+  console.log("preValue: ",preValue.current);
+  useEffect(()=>{
+    preValue.current=value;
+    console.log("preValue from useEffect",preValue.current)
+  },[value])
+const [ccount,setCcount]=useState(0);
+const countRef=useRef(0);
+function updateState(){
+  setCcount(ccount+1)
+}
+function updateRef(){
+  countRef.current++
+  console.log(countRef.current)
+}
+
+const [count3,setCount3]=useState(0);
+  const students = [{
+  name: "Safwan",
+  course: "React",
+  batch: "Week 8"
+},
+{
+   name: "Rohith",
+  course: "Node js",
+  batch: "Week 6"
+},
+{
+   name: "Manu",
+  course: "MongoDB",
+  batch: "Week 7"
+}
+];
+  const [userName,setUserName]=useState("")
+  const [passWord,setPassWord]=useState("")
+  const [message, setMessage] = useState("");
+
+  function handleSubmit(e) {
+  e.preventDefault();
+setMessage("Login Successful!");
+  console.log(userName);
+  console.log(passWord);
+}
+  const [showText,setShowText]=useState(false);
+  function handleToggle(){
+    setShowText(!showText)
+  }
+  const [countt,setCountt]=useState(0)
+  function handleIncrement(){
+    setCountt(countt+1)
+  }
+  function handleDecrement(){
+    setCountt(countt-1)
+  }
+  function handleReset(){
+    setCountt(0)
+  }
+  const [text,setText]=useState("")
+  function handleChange(e){
+console.log(e.target.value)
+setText(e.target.value)
+  }
+  const [courses,setCourses]=useState([{
+    id:1, name:"HTML",
+    id:2, name:"CSS",
+    id:3, name:"javaScript"
+  }]);
+  function addCourses(){
+      const newCourse= {id:Date.now(),name:"React"}
+      setCourses([...courses,newCourse])
+  }
+  function deleteCorse(id){
+    const filteredCourse=courses.filter((course)=>course.id!==id);
+    setCourses(filteredCourse)
+  }
+  function updateCourse(id){
+       const updatedCourse=courses.map((course)=>{
+          if(course.id===id){
+            return {...courses,name:"Advanced React"}
+          }else{
+            return course
+          }
+       })
+       setCourses(updatedCourse)
+  }
+  const [isLoggedIn,setIsLoggedIn]=useState(false)
+  const [status,setStatus]=useState("Loading");
+  const statusMap={loading:"Loading",
+    error:"Something went wrong",
+    empty:"No data found",
+    success:"Data loaded"
+}
+  const[isLoggedin,setIsLoggedin]=useState(false);
+  const [eonix,setEonix]=useState({name:"eonix",location:"Thalassery",course:"Mern Stack"});
+function changeCourse(){
+  setEonix((prev)=>({...prev,course:"Full stack"}))
+}
+
+  console.log("Component rendered");
+  const [count1,setCount1]=useState(0);
+  const [count2,setCount2]=useState(0);
+  let normal=0;
+
+  function handleClick1(){
+    setCount1(count1+1);
+    console.log(normal)
+    normal=normal+1;
+    console.log(normal)
+  }
+   function handleClick2(){
+    setCount2(count2+1);
+    console.log(normal)
+    normal=normal+1;
+    console.log(normal)
+  }
+
+
+  function getValue(){
+    console.log("getValue fn called")
+    return(0);
+  }
+  const[count,setCount]=useState(()=>getValue())
+  function handleClick(){
+    setCount((c)=>c+1);
+    console.log(count);
+  }
+
+  return (
+    <div style={{padding:"20px"}}>
+      <h1>Student Directory</h1>
+<div style={{display:"flex",gap:"15px"}}>
+<StudentCard name="Anu" course="Full Stack Developement" batch="2026"/>
+<StudentCard name="Riya" course="React" batch="2026"/>
+<StudentCard name="Varun" course="Node js" batch="2026"/>
+
+</div>
+<hr/>
+<Card
+  title="Laptop" price={35000}/>
+  <hr/>
+  <h1>{count}</h1>
+  <button onClick={handleClick}>Click</button>
+  <hr/>
+  <h2>count1: {count1}</h2>
+  <h2>count2: {count2}</h2>
+   <h2>variable: {normal}</h2>
+      <button onClick={handleClick1}>update state one</button>
+       <button onClick={handleClick2}>update state two</button>
+
+       <hr/>
+       <h1>Eonix Details</h1>
+       <pre>{JSON.stringify(eonix,null,2)}</pre>
+       <button onClick={changeCourse}>Change Course</button>
+       <hr/>
+       <h2>{isLoggedin?"welcome":"login"}</h2>
+       <button onClick={()=>(setIsLoggedin(!isLoggedin))}>Toggle</button>
+
+       <hr/>
+       <h1>{statusMap[status]}</h1>
+       <button onClick={()=>setStatus("loading")}>Loading</button>
+       <button onClick={()=>setStatus("error")}>Error</button>
+       <button onClick={()=>setStatus("empty")}>Empty</button>
+       <button onClick={()=>setStatus("success")}>Success</button>
+
+       <hr/>
+       {isLoggedIn?(<DashBoard setIsLoggedIn={setIsLoggedIn}/>
+       ):(<Login setIsLoggedIn={setIsLoggedIn}/>
+        
+       )}
+
+       <hr/>
+       <div className="container">
+        <h1>Courses</h1>
+        <button className="btn" onClick={addCourses}>AddCourse</button>
+        <div className="cardContainer">
+          {courses.map((course)=>(
+            <div className="card" key={course.id}>
+              <h2>{course.name}</h2>
+              <button onClick={()=>updateCourse(course.id)}>Update</button>
+              <button onClick={()=>deleteCorse(course.id)}>Delete</button>
+            </div>
+          ))}
+
+        </div>
+
+       </div>
+
+<hr/>
+
+<input type="text" onChange={handleChange} />
+<p>{text}</p>
+<input type="email"/>
+<button>Submit</button>
+
+<hr/>
+<div className="counter-container">
+  <div className="counter-card">
+<h1>{countt}</h1>
+<div className="btn-group">
+<button onClick={handleIncrement}>+</button>
+<button onClick={handleDecrement}>-</button>
+<button onClick={handleReset}>Reset</button>
+</div>
+</div>
+</div>
+
+<hr/>
+<div className="toggle-container">
+<button onClick={handleToggle}>Show/Hide</button>
+  {showText && <p>Hello React</p>}
+</div>
+<hr/>
+<div className="form-container">
+<form className="login-form" onSubmit={handleSubmit}>
+  <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)}/>
+  <input type="password" value={passWord} onChange={(e)=>setPassWord(e.target.value)}/>
+  {message && <p>Login Successful!</p>}
+  <button type="submit">Submit</button>
+</form>
+</div>
+<hr/>
+<div>
+{students.map((student)=>(
+  <StudentCard key={student.name} name={student.name} course={student.course} batch={student.batch}/>
+))}
+</div>
+
+<hr/>
+<h1>{count3}</h1>
+<button onClick={()=>setCount3(1)}>Show First</button>
+<button onClick={()=>setCount3(2)}>Show Second</button>
+<button onClick={()=>setCount3(3)}>Show Third</button>
+
+{count3===1 && <First/>}
+{count3===2 && <Second/>}
+{count3===3 && <Third/>}
+<hr/>
+
+<h1>State Count: {ccount}</h1>
+<h1>Ref Count: {countRef.current}</h1>
+<button onClick={updateState}>state</button>
+<button onClick={updateRef}>Ref</button>
+<hr/>
+
+<input onChange={(e)=>setValue(e.target.value)}/>
+<p>current: {value}</p>
+<p>Previous:{preValue.current}</p>
+<hr/>
+
+<h1>Count: {counttt}</h1>
+<h1>Square:{square} </h1>
+<button onClick={()=>setCounttt(counttt+1)}>Increase</button>
+<input value={textt} onChange={(e)=>setTextt(e.target.value)}/>
+<hr/>
+<NewHello/>
+<hr/>
+
+<h1>HOC Sample</h1>
+<input type="text" placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value) }/>
+<br/>
+<br/>
+<button onClick={()=>setIsLoggedIn1(true)}>Login</button>
+<br/>
+<button onClick={()=>setIsLoggedIn1(false)}>Logout</button>
+<br/>
+<ProtectedDashBoard isLoggedIn1={isLoggedIn1} name={name}/>
+<hr/>
+<Products></Products>
+<hr/>
+
+<BrowserRouter>
+<div>
+  <h1>Student Management App</h1>
+  <nav>
+    <Link to={"/"}>Home</Link>
+     <Link to={"/about"}>About</Link>
+      <Link to={"/students"}>Students</Link>
+  </nav>
+  <Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="/about" element={<About/>}/>
+    <Route path="/students" element={<Students/>}/>
+  </Routes>
+</div>
+  </BrowserRouter>
+
+
+
+
+</div>
+
+    
+    
+
+  );
+}
+export default App;
+
+
+
+student registration form
+import { useState } from "react";
+
+function App() {
+const [name,setName]=useState("");
+const [course,setCourse]=useState("");
+const [student,setStudent]=useState(null);
+function handleSubmit(e){
+e.preventDefault()
+
+setStudent({
+  name:name,
+  course:course
+})
+setName("");
+setCourse("");
+}
+  return (
+    <div>
+<h1>Student Registration Form</h1>
+<form onSubmit={handleSubmit}>
+  <input
+  type="text"
+  placeholder="Enter your name"
+  value={name}
+  onChange={(e)=>setName(e.target.value)}
+  required
+  />
+  <br/><br/>
+   <input
+  type="text"
+  placeholder="Enter your course"
+  value={course}
+  onChange={(e)=> setCourse(e.target.value)}
+  required
+  />
+  <button type="submit">submit</button>
+
+</form>
+{student&&(
+  <div>
+    <h1>Student Details</h1>
+    <p>name: {student.name}</p>
+    <p>course: {student.course}</p>
+  </div>
+)}
+    </div>
+  );
+}
+
+export default App;
