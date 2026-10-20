@@ -1,0 +1,324 @@
+import { useState } from "react";
+function App(){
+  const [count,setCount]=useState(5);
+
+  return (
+    <div>
+<h1>{count}</h1>
+<button onClick={()=>setCount(count+1)}>Increase</button>
+<button onClick={()=>{
+  if(count>0){
+    setCount(count-1)
+  }
+}}>Decrease</button>
+<button onClick={()=>setCount(5)}>Reset</button>
+ </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react"
+function App(){
+  const [name,setName]=useState("Aysha")
+  return (
+    <div>
+      <h1>{name}</h1>
+      <button onClick={()=>setName("Manu")}>Change Name</button>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react"
+function App(){
+  const [name,setName]=useState("Aysha")
+  return (
+    <div>
+      <h1>{name}</h1>
+      <button onClick={()=>{
+        if(name==="Aysha"){
+          setName("Manu")
+        }else{
+          setName("Aysha")
+        }
+      }}>Change Name</button>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react"
+function App(){
+  const [name,setName]=useState("")
+  return (
+    <div>
+<h1>{name}</h1>
+<input
+type="text"
+placeholder="Enter your name"
+value={name}
+onChange={(e)=>setName(e.target.value)}
+/>
+<button onClick={()=>setName("")}>Clear Name</button>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react";
+function App(){
+  const [count,setCount]=useState(10);
+
+  return (
+    <div>
+<h1>{count}</h1>
+<button onClick={()=>setCount(count+5)}>Increase</button>
+<button onClick={()=>{
+  if(count>0){
+    setCount(count-2)
+  }
+}}>Decrease</button>
+<button onClick={()=>setCount(10)}>Reset</button>
+ </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react";
+function App(){
+  const [count,setCount]=useState(10);
+
+  return (
+    <div>
+<h1>{count}</h1>
+<button onClick={()=>setCount((prevCount)=>prevCount+5)}>Increase</button>
+<button onClick={()=>{
+  if(count>0){
+    setCount(count-2)
+  }
+}}>Decrease</button>
+<button onClick={()=>setCount(10)}>Reset</button>
+ </div>
+  )
+}
+export default App;
+<hr/>
+
+function App(){
+  function handleClick(name){
+    console.log("welcome",name);
+  }
+  return (
+    <div>
+<button onClick={()=>handleClick("aysha")}>Click Me</button>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react";
+
+function App(){
+const [name,setName]=useState("")
+  return (
+    <div>
+      <input
+      name="name"
+      type="text"
+      placeholder="Enter your name"
+      value={name}
+      onChange={(e)=>setName(e.target.value)}
+      />
+<h1>Name: {name}</h1>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react";
+
+function App(){
+const [name,setName]=useState("")
+function handleSubmit(e){
+  e.preventDefault();
+  if(name.trim()===""){
+    console.log("Enter your name")
+  }else{
+  console.log("Hello", name)
+  }
+}
+  return (
+<div>
+      <form  onSubmit={handleSubmit}>
+      <input
+      name="name"
+      type="text"
+      placeholder="Enter your name"
+      value={name}
+      onChange={(e)=>setName(e.target.value)}
+      />
+<button type="submit">Submit</button>
+<h1>Name: {name}</h1>
+</form>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react";
+
+function App(){
+const [name,setName]=useState("")
+const [course,setCourse]=useState("")
+function handleSubmit(e){
+  e.preventDefault();
+  if(name.trim()===""||course.trim()===""){
+    console.log("pls Enter both name and course")
+  }else{
+  console.log("Hello", name)
+  console.log("Course: ",course)
+  }
+
+}
+  return (
+<div>
+      <form  onSubmit={handleSubmit}>
+      <input
+      name="name"
+      type="text"
+      placeholder="Enter your name"
+      value={name}
+      onChange={(e)=>setName(e.target.value)}
+      />
+      <input
+      type="text"
+      value={course}
+      onChange={(e)=>setCourse(e.target.value)}
+      />
+<button type="submit">Submit</button>
+<h1>Name: {name}</h1>
+<h1>Course: {course}</h1>
+</form>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react"
+
+function App(){
+  const [isLoggedIn,setIsLoggedIn]=useState(false)
+  
+  return (
+    <div>
+      <h1>{isLoggedIn===true?"login successful":"pls login"}</h1>
+<button onClick={()=>setIsLoggedIn(!isLoggedIn)}>{isLoggedIn?"LOGIN":"LOGOUT"}</button>
+    </div>
+  )}
+  export default App;
+  <hr/>
+
+  function App(){
+  const fruits=["Apple","Banana","Orange"]
+  return (
+    <ul>
+{fruits.map((fruit)=>(
+  <li key={fruit}>{fruit}</li>
+))}
+    </ul>
+  )
+}
+export default App;
+<hr/>
+
+function App(){
+  const students = [
+  { id: 1, name: "Anu" },
+  { id: 2, name: "Meera" },
+  { id: 3, name: "Sara" }
+];
+  return (
+    <div>
+{students.map((student)=>(
+  <p key={student.id}>{student.name}</p>
+))}
+    </div>
+  )
+}
+export default App;
+
+import { useState } from "react";
+
+function App(){
+const [course,setCourse]=useState("")
+  return (
+    <div>
+<input
+type="text"
+placeholder="Enter your course"
+value={course}
+onChange={(e)=>setCourse(e.target.value)}
+/>
+<h1>{course}</h1>
+<button onClick={()=>setCourse("")}>clear</button>
+    </div>
+  )
+}
+export default App;
+<hr/>
+
+import { useState } from "react";
+
+function App(){
+  const [name,setName]=useState("")
+const [course,setCourse]=useState("")
+function handleSubmit(e){
+e.preventDefault();
+console.log("Name: ",name);
+console.log("Course: ",course);
+if(name.trim()===""||course.trim()===""){
+  console.log("pls enter name and course")
+}else{
+  console.log("name: ",name);
+  console.log("corse: ",course)
+}
+setName("")
+setCourse("")
+}
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+      <input
+      type="text"
+      placeholder="Enter your name"
+      value={name}
+      onChange={(e)=>setName(e.target.value)}
+      />
+<input
+type="text"
+placeholder="Enter your course"
+value={course}
+onChange={(e)=>setCourse(e.target.value)}
+/>
+<h1>{name}</h1>
+<h1>{course}</h1>
+<button type="submit">Submit</button>
+</form>
+    </div>
+  )
+}
+export default App;
+
+
+
+
+

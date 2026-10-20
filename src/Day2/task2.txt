@@ -1,0 +1,12 @@
+import { useState } from "react";
+
+function App(){
+  const [showText,setShowText]=useState(false);
+  return (
+    <div>
+{showText?<h1>Hello Safreen</h1>:null}
+<button onClick={()=>setShowText(!showText)}>show/hide</button>
+    </div>
+  )
+}
+export default App;
