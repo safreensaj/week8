@@ -1,0 +1,29 @@
+import { Routes,Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+function App(){
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/students" element={<Students/>}/>
+    </Routes>
+  )
+}
+export default App;
+
+function Home(){
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <Link to={"/students"}>View Students</Link>
+    </div>
+  )
+}
+function Students(){
+  return (
+    <div>
+      <h1>Students Page</h1>
+      <Link to={"/"}>Go to Home</Link>
+    </div>
+  )
+}

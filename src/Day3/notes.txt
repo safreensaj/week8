@@ -1,0 +1,93 @@
+. Rules of Hooks
+- Hooks must be called at the top level of a React function component or custom Hook.
+- Do not call Hooks inside loops, conditions, or nested functions.
+- Hooks should not be called in regular JavaScript functions.
+
+- Hooks component-ന്റെ top level-ൽ വിളിക്കണം.
+- if, loops, nested functions എന്നിവയ്ക്കുള്ളിൽ Hooks വിളിക്കരുത്.
+- React function components-ലും custom Hooks-ലും ഉപയോഗിക്കാം.
+
+2. useEffect Hook
+- useEffect is used to handle side effects in React.
+- It is commonly used for data fetching, timers, and subscriptions.
+- Component-ന് പുറത്തുള്ള കാര്യങ്ങൾ കൈകാര്യം ചെയ്യാൻ useEffect ഉപയോഗിക്കുന്നു.
+- API-യിൽ നിന്ന് data എടുക്കാനും timers പോലുള്ള കാര്യങ്ങൾ ചെയ്യാനും ഉപയോഗിക്കാം.
+
+3. Dependency Array
+- The dependency array controls when an effect runs.
+- An empty array [] means the effect runs after the initial mount.
+- When dependencies change, the effect runs again.
+- useEffect എപ്പോൾ പ്രവർത്തിക്കണമെന്ന് dependency array നിയന്ത്രിക്കുന്നു.
+- [ ] നൽകിയാൽ ആദ്യത്തെ mount-ന് ശേഷം effect പ്രവർത്തിക്കും.
+- Dependency-യുടെ value മാറുമ്പോൾ effect വീണ്ടും പ്രവർത്തിക്കും.
+
+4. Cleanup Function
+- A cleanup function is used to clean up effects.
+- It helps prevent memory leaks and unwanted behavior.
+- It is commonly used to clear timers or remove event listeners.
+- Effect-നോട് ബന്ധപ്പെട്ട കാര്യങ്ങൾ അവസാനിപ്പിക്കാനാണ് cleanup function ഉപയോഗിക്കുന്നത്.
+- Timer clear ചെയ്യാനും event listeners നീക്കം ചെയ്യാനും ഉപയോഗിക്കാം.
+
+5. useRef Hook
+- useRef stores a value that remains between renders.
+- Updating a ref does not cause a re-render.
+- It can also be used to access DOM elements.
+- Renders നടക്കുമ്പോഴും നിലനിൽക്കുന്ന value സൂക്ഷിക്കാൻ useRef ഉപയോഗിക്കുന്നു.
+- Ref-ന്റെ value മാറ്റിയാൽ component വീണ്ടും render ആവില്ല.
+- Input പോലുള്ള DOM elements access ചെയ്യാനും ഉപയോഗിക്കാം.
+
+6. useMemo Hook
+- useMemo is used to memoize the result of a calculation.
+- It helps avoid unnecessary recalculations.
+- It is useful for expensive calculations.
+- ഒരു calculation-ന്റെ result സൂക്ഷിച്ചുവെക്കാൻ useMemo ഉപയോഗിക്കുന്നു.
+- Dependencies മാറാത്തപ്പോൾ ആ calculation വീണ്ടും ചെയ്യുന്നത് ഒഴിവാക്കാൻ സഹായിക്കുന്നു.
+
+7. useCallback Hook
+- useCallback memoizes a function.
+- It helps avoid creating a new function on every render when dependencies have not changed.
+- It is useful for performance optimization.
+- ഒരു function-നെ memoize ചെയ്യാൻ useCallback ഉപയോഗിക്കുന്നു.
+- Dependencies മാറാത്തപ്പോൾ അതേ function reference നിലനിർത്താൻ സഹായിക്കുന്നു.
+- Performance optimization-ന് ഉപയോഗിക്കാം.
+
+8. Custom Hooks
+- Custom Hooks are JavaScript functions that reuse stateful logic.
+- Their names must start with use.
+- They help avoid repeating the same logic in multiple components.
+- ഒരേ logic പല components-ലും ഉപയോഗിക്കാൻ Custom Hooks സഹായിക്കുന്നു.
+- Custom Hook-ന്റെ പേര് സാധാരണ use എന്ന് തുടങ്ങണം.
+- ഉദാഹരണം: useFetch, useAuth.
+
+9. Data Fetching using fetch / axios
+- Data fetching means getting data from an API or server.
+- fetch is a built-in JavaScript API.
+- Axios is a third-party library used to make HTTP requests.
+- API അല്ലെങ്കിൽ server-ൽ നിന്ന് data എടുക്കുന്നതാണ് Data Fetching.
+- fetch JavaScript-ൽ built-in ആയി ലഭ്യമാണ്.
+- axios data അയയ്ക്കാനും സ്വീകരിക്കാനും ഉപയോഗിക്കുന്ന ഒരു library ആണ്.
+
+10. Loading & Error Handling
+- Loading handling shows a message while data is being fetched.
+- Error handling displays a message if something goes wrong.
+- It improves the user experience.
+- API data വരുന്നതുവരെ Loading message കാണിക്കുന്നു.
+- Data fetch ചെയ്യുമ്പോൾ പ്രശ്നം വന്നാൽ Error message കാണിക്കുന്നു.
+- ഇതിലൂടെ user-ന് എന്താണ് സംഭവിക്കുന്നതെന്ന് മനസ്സിലാകും.
+
+Quick Revision Table
+
+Rules of Hooks	Call Hooks at the top level
+useEffect	Handles side effects
+Dependency Array	Controls when an effect runs
+Cleanup Function	Cleans up effects
+useRef	Stores values and accesses DOM elements
+useMemo	Memoizes a calculation result
+useCallback	Memoizes a function
+Custom Hooks	Reuse stateful logic
+fetch / Axios	Get data from APIs
+Loading & Error Handling	Show loading and error messages
+
+useEffect: Side effects ചെയ്യാൻ.
+useMemo: Calculation result memoize ചെയ്യാൻ.
+useCallback: Function memoize ചെയ്യാൻ.

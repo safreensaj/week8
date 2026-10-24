@@ -1,0 +1,46 @@
+1. React Router DOM
+React Router DOM is a library used to navigate between different pages in a React application without reloading the entire page.
+React application-ൽ ഒരു പേജിൽ നിന്ന് മറ്റൊരു പേജിലേക്ക് മാറാൻ ഉപയോഗിക്കുന്ന library ആണ് React Router DOM. മുഴുവൻ പേജും reload ചെയ്യേണ്ടതില്ല.
+Example: Home page-ൽ നിന്ന് Login page-ലേക്ക് പോകുന്നത്.
+
+2. BrowserRouter
+BrowserRouter is used to enable routing in a React application. It keeps the UI synchronized with the browser URL.
+React application-ൽ routing പ്രവർത്തിക്കാൻ BrowserRouter ഉപയോഗിക്കുന്നു. Browser-ലെ URL അനുസരിച്ച് ഏത് component കാണിക്കണം എന്ന് നിയന്ത്രിക്കാൻ ഇത് സഹായിക്കുന്നു.
+
+3. Routes & Route
+Routes is used to group routes, and Route defines which component should be displayed for a particular URL path.
+Routes പല routes-നെയും ഒരുമിച്ച് ഉൾക്കൊള്ളുന്നു. Route ഒരു പ്രത്യേക URL-ൽ ഏത് component കാണിക്കണമെന്ന് നിർവചിക്കുന്നു.
+
+4. useParams
+useParams is a hook used to access dynamic values from the URL.
+URL-ൽ ഉള്ള dynamic values എടുക്കാൻ ഉപയോഗിക്കുന്ന hook ആണ് useParams.
+
+5. useNavigate
+useNavigate is a hook used to navigate from one page to another programmatically.
+Button click ചെയ്യുമ്പോൾ പോലുള്ള സാഹചര്യങ്ങളിൽ ഒരു പേജിൽ നിന്ന് മറ്റൊരു പേജിലേക്ക് പോകാൻ useNavigate ഉപയോഗിക്കുന്നു.
+
+6. Nested Routes
+Nested routes are routes placed inside another route. They help us create a common layout for multiple pages.
+ഒരു parent route-ന്റെ ഉള്ളിൽ child routes ഉണ്ടാക്കുന്നതിനെയാണ് Nested Routes എന്ന് പറയുന്നത്. പല പേജുകളിലും ഒരേ layout ഉപയോഗിക്കാൻ ഇത് സഹായിക്കുന്നു.
+
+7. 404 Page
+A 404 page is displayed when the user visits a URL that does not match any defined route.
+നമ്മുടെ application-ൽ ഇല്ലാത്ത ഒരു URL തുറക്കുമ്പോൾ കാണിക്കുന്ന page ആണ് 404 Page അല്ലെങ്കിൽ Not Found Page.
+
+8. Protected Routes (Frontend Logic)
+Protected routes restrict access to certain pages based on the user's login status. If the user is not logged in, they are redirected to the login page.
+User login ചെയ്തിട്ടുണ്ടോ എന്ന് പരിശോധിച്ച് ചില pages-ലേക്കുള്ള access നിയന്ത്രിക്കുന്ന രീതിയാണ് Protected Routes.
+- Login ചെയ്തിട്ടുണ്ടെങ്കിൽ → Dashboard കാണിക്കും.
+- Login ചെയ്തിട്ടില്ലെങ്കിൽ → Login page-ലേക്ക് redirect ചെയ്യും.
+
+
+Quick Revision –
+
+React Router DOM	Navigates between pages
+BrowserRouter	Enables routing
+Routes & Route	Defines URL paths and components
+useParams	Gets dynamic URL values
+useNavigate	Navigates using code
+Nested Routes	Child routes inside a parent route
+404 Page	Handles unknown URLs
+Protected Routes	Restricts pages based on login status

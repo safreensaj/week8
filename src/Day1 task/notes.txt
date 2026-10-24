@@ -1,0 +1,49 @@
+Context API എന്തിനാണ്?
+Components തമ്മിൽ data share ചെയ്യാൻ.
+Lazy Loading എന്തിനാണ്?
+ആവശ്യമുള്ളപ്പോൾ മാത്രം component load ചെയ്യാൻ.
+React.memo എന്തിനാണ്?
+Props മാറാത്തപ്പോൾ അനാവശ്യമായ re-render കുറയ്ക്കാൻ.
+1. What is React?
+React is a JavaScript library used to build user interfaces. It helps us create reusable UI components. React is commonly used to build interactive web applications.
+React എന്നത് വെബ്സൈറ്റിന്റെ User Interface നിർമ്മിക്കാൻ ഉപയോഗിക്കുന്ന JavaScript library ആണ്. ഒരേ UI ഭാഗം വീണ്ടും ഉപയോഗിക്കാൻ Components സഹായിക്കുന്നു. Interactive websites നിർമ്മിക്കാനും React ഉപയോഗിക്കുന്നു.
+2. Why React?
+React makes UI development easier. It allows us to reuse components. It updates the UI when data changes. It also helps us organize large applications into smaller components.
+React ഉപയോഗിക്കുന്നത് UI എളുപ്പത്തിൽ നിർമ്മിക്കാനും Components വീണ്ടും ഉപയോഗിക്കാനും വേണ്ടിയാണ്. Data മാറുമ്പോൾ UI അപ്ഡേറ്റ് ചെയ്യാനും വലിയ application ചെറിയ ഭാഗങ്ങളായി ക്രമീകരിക്കാനും React സഹായിക്കുന്നു
+3. What is SPA (Single Page Application)?
+SPA stands for Single Page Application. It is a web application that loads a main HTML page and updates the necessary content without reloading the entire page in many cases. React can be used to build SPAs.
+SPA എന്നത് Single Page Application ആണ്. പ്രധാന HTML പേജ് ലോഡ് ചെയ്തശേഷം, സാധാരണയായി മുഴുവൻ പേജും reload ചെയ്യാതെ ആവശ്യമായ content മാറ്റാൻ ഇതിന് കഴിയും. React ഉപയോഗിച്ച് SPA നിർമ്മിക്കാം.
+Example: ഒരു shopping website-ൽ Home-ൽ നിന്ന് Cart-ലേക്ക് മാറുമ്പോൾ മുഴുവൻ പേജ് reload ചെയ്യാതെ content മാറുന്നത്.
+4. What is Virtual DOM?
+The Virtual DOM is a JavaScript representation of the UI used by React. React compares the previous and new UI representations to determine what needs to change. It then updates the necessary parts of the real DOM.
+Virtual DOM എന്നത് UI-യെ പ്രതിനിധീകരിക്കുന്ന JavaScript ഘടനയാണ്. React പഴയതും പുതിയതുമായ UI താരതമ്യം ചെയ്ത് എന്തെല്ലാം മാറ്റങ്ങൾ ആവശ്യമാണെന്ന് കണ്ടെത്തുന്നു. അതിനുശേഷം യഥാർത്ഥ DOM-ൽ ആവശ്യമായ മാറ്റങ്ങൾ നടത്തുന്നു.
+Virtual DOM helps React identify necessary UI updates.
+Real DOM: ബ്രൗസറിലെ യഥാർത്ഥ വെബ്പേജിന്റെ ഘടന.
+Virtual DOM: React ഉപയോഗിക്കുന്ന UI-യുടെ JavaScript പ്രതിനിധാനം.
+7. What is Project Folder Structure?
+Project folder structure organizes the files of a React application. The src folder contains our React code. App.jsx contains the main application component, and main.jsx renders the application into the HTML page.
+8. JSX (Rules & Syntax)
+JSX stands for JavaScript XML. It allows us to write HTML-like syntax inside JavaScript. In JSX, we must return a single parent element, close tags properly, and use className instead of class.പ്രധാന Rules:
+1. ഒന്നിലധികം elements return ചെയ്യുമ്പോൾ ഒരു parent element അല്ലെങ്കിൽ Fragment ഉപയോഗിക്കുക.
+2. എല്ലാ tags-ഉം ശരിയായി close ചെയ്യുക.
+3. class-ന് പകരം className ഉപയോഗിക്കുക.
+4. JavaScript expressions എഴുതാൻ { } ഉപയോഗിക്കുക.
+5. Inline styles-ൽ style={{ color: "red" }} പോലുള്ള syntax ഉപയോഗിക്കുക.
+JSX എന്നത് JavaScript-ൽ HTML പോലെയുള്ള syntax എഴുതാനുള്ള രീതിയാണ്. React components-ന്റെ UI എഴുതാൻ ഇത് സഹായിക്കുന്നു.
+ഓർക്കുക: JSX = HTML-like syntax inside JavaScript.
+9. Embedding JavaScript in JSX
+We can use JavaScript expressions inside JSX by placing them within curly braces {}. We can display variables, perform calculations, and call functions inside these braces.
+JSX-ന്റെ ഉള്ളിൽ JavaScript variable-ന്റെ value കാണിക്കാനും calculations നടത്താനും { } ഉപയോഗിക്കുന്നു.
+ഓർക്കുക: Curly braces {} allow JavaScript expressions inside JSX.
+10. Functional ComponentsFunctional Component എന്നത് UI നൽകുന്ന JavaScript function ആണ്. StudentCard ഒരിക്കൽ നിർമ്മിച്ചാൽ പല തവണ ഉപയോഗിക്കാം.
+A functional component is a JavaScript function that returns React UI. Component names must start with a capital letter. We can reuse the same component multiple times in an application.
+- Export: ഒരു component മറ്റൊരു ഫയലിൽ ഉപയോഗിക്കാൻ ലഭ്യമാക്കുന്നു.
+- Import: ആ component മറ്റൊരു ഫയലിൽ ഉപയോഗിക്കാൻ കൊണ്ടുവരുന്നു.
+Default export-ന് സാധാരണയായി curly braces വേണ്ട. Named export import ചെയ്യുമ്പോൾ { } ഉപയോഗിക്കുന്നു.
+React Strict ModeStrict Mode development സമയത്ത് code-ലുള്ള ചില പ്രശ്നങ്ങൾ കണ്ടെത്താൻ സഹായിക്കുന്നു. ഇത് സ്ക്രീനിൽ പ്രത്യേകമായി ഒന്നും കാണിക്കില്ല. Development-ൽ ചില component functions അല്ലെങ്കിൽ Effects അധികമായി പരിശോധിക്കപ്പെടാം.
+13. React DevTools
+React Developer Tools is a browser extension used to inspect and debug React applications. It allows us to view the component tree, inspect props and hooks, and analyze rendering performance using the Profiler.
+React DevTools എന്നത് browser extension ആണ്. React application-ലെ Components, Props, Hooks എന്നിവ പരിശോധിക്കാനും rendering performance മനസ്സിലാക്കാനും ഇത് സഹായിക്കുന്നു.
+ഉദാഹരണം:
+നമ്മുടെ app-ൽ App component-ന്റെ ഉള്ളിൽ StudentCard ഉണ്ടെങ്കിൽ DevTools-ലെ Components tab ഉപയോഗിച്ച് ആ ഘടന പരിശോധിക്കാം.
+ഓർക്കുക: React DevTools = Inspect and debug React applications.

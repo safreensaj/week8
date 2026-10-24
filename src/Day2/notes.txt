@@ -1,0 +1,58 @@
+1. Props (Passing Data)
+Props are used to pass data from a parent component to a child component. Props are read-only.
+ഒരു Parent component-ൽ നിന്ന് Child component-ലേക്ക് data അയക്കാൻ ഉപയോഗിക്കുന്നതാണ് Props. Props-നെ child component-ൽ നേരിട്ട് മാറ്റാൻ പാടില്ല.
+
+2. Props Destructuring
+Props destructuring is a way to extract values from props and use them directly inside a component.
+Props-ൽ നിന്ന് values നേരിട്ട് എടുത്ത് ഉപയോഗിക്കുന്ന രീതിയാണ് Props Destructuring.
+
+3. Children Prop
+The children prop is used to access the content placed between the opening and closing tags of a component.
+ഒരു component-ന്റെ opening tag-നും closing tag-നും ഇടയിൽ എഴുതുന്ന content ലഭിക്കാൻ children prop ഉപയോഗിക്കുന്നു.
+
+4. useState Hook
+useState is a React Hook used to store and manage state in a functional component.
+ഒരു component-ൽ മാറിക്കൊണ്ടിരിക്കുന്ന data സൂക്ഷിക്കാനും manage ചെയ്യാനും useState ഉപയോഗിക്കുന്നു.
+
+5. Updating State
+We update state using the setter function provided by useState. When the state changes, React updates the UI.
+useState നൽകുന്ന setter function ഉപയോഗിച്ചാണ് state മാറ്റുന്നത്. State മാറുമ്പോൾ React UI വീണ്ടും update ചെയ്യും.
+
+6. Event Handling
+Event handling is used to perform an action when a user interacts with the application, such as clicking a button.
+User button click ചെയ്യുമ്പോൾ അല്ലെങ്കിൽ input-ൽ type ചെയ്യുമ്പോൾ അതിനനുസരിച്ച് action നടത്തുന്നതാണ് Event Handling.
+
+7. Synthetic Events
+Synthetic events are React's event system that provides consistent event handling across different browsers.
+വ്യത്യസ്ത browsers-ൽ user events ഒരേ രീതിയിൽ കൈകാര്യം ചെയ്യാൻ React നൽകുന്ന event system ആണ് Synthetic Events.
+
+
+8. Conditional Rendering
+Conditional rendering means displaying different UI elements based on a condition.
+ഒരു condition അനുസരിച്ച് വ്യത്യസ്ത UI കാണിക്കുന്ന രീതിയാണ് Conditional Rendering.
+
+9. Lists & Keys
+In React, we use the map() method to display lists of data. A key helps React identify each item uniquely.
+ഒരു array-യിലെ data പല items ആയി display ചെയ്യാൻ map() ഉപയോഗിക്കുന്നു. ഓരോ item-നെയും തിരിച്ചറിയാൻ React-ന് key ആവശ്യമാണ്.
+
+10. Controlled Components
+A controlled component is a form element whose value is controlled by React state.
+ഒരു input field-ന്റെ value React state ഉപയോഗിച്ച് നിയന്ത്രിക്കുന്ന രീതിയാണ് Controlled Component.
+
+11. Form Handling Basics
+Form handling is used to collect and process user input. We commonly use onSubmit to handle form submission and preventDefault() to prevent the page from reloading.
+ഒരു form വഴി user നൽകുന്ന വിവരങ്ങൾ സ്വീകരിക്കാനും process ചെയ്യാനുമാണ് Form Handling ഉപയോഗിക്കുന്നത്. onSubmit ഉപയോഗിച്ച് form submission handle ചെയ്യാം. preventDefault() സാധാരണ page reload തടയുന്നു.
+
+Quick Revision – 
+
+Props	Pass data to a child component
+Props Destructuring	Extract values from props
+Children Prop	Content inside component tags
+useState	Store and manage state
+Updating State	Change state using a setter
+Event Handling	Respond to user actions
+Synthetic Events	React's event system
+Conditional Rendering	Display UI based on a condition
+Lists & Keys	Render lists and identify items
+Controlled Components	Input value managed by React state
+Form Handling	Collect and process form data
