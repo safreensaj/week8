@@ -1,0 +1,66 @@
+1. Context API
+Context API is used to share data between components without passing props manually through every level.
+ഓരോ component-ലൂടെയും props pass ചെയ്യാതെ തന്നെ പല components-ന് data share ചെയ്യാൻ Context API ഉപയോഗിക്കുന്നു.
+Example: Theme, Cart, User details.
+
+2. useContext
+useContext is a React Hook used to access data from Context.
+Context-ൽ നിന്ന് data access ചെയ്യാൻ ഉപയോഗിക്കുന്ന React Hook ആണ് useContext.
+
+3. Prop Drilling Problem
+Prop drilling means passing props through multiple components to reach a deeply nested component. It makes code difficult to maintain.
+ഒരു component-ൽ നിന്നുള്ള data ആവശ്യമുള്ള component-ൽ എത്തിക്കാൻ ഇടയിലുള്ള പല components-ലൂടെയും props pass ചെയ്യുന്നതാണ് Prop Drilling. ഇത് code maintain ചെയ്യാൻ ബുദ്ധിമുട്ടാക്കാം.
+Remember: Prop Drilling = Passing props through many levels.
+
+4. Lifting State Up
+Lifting State Up means moving shared state to the nearest common parent component.
+ഒന്നിലധികം components-ന് ഒരേ state ആവശ്യമാണെങ്കിൽ, ആ state അവയുടെ ഏറ്റവും അടുത്ത common parent component-ലേക്ക് മാറ്റുന്നതിനെയാണ് Lifting State Up എന്ന് പറയുന്നത്.
+Example: App-ൽ state വെച്ച് StudentInput, StudentDisplay എന്നിവയ്ക്ക് props വഴി നൽകുന്നത്.
+
+
+5. Composition vs Inheritance
+Composition means combining smaller components to build a larger component. Inheritance means one class gets properties and methods from another class. React prefers composition.
+- Composition: ചെറിയ components കൂട്ടിച്ചേർത്ത് വലിയ component ഉണ്ടാക്കുന്നത്.
+- Inheritance: ഒരു class മറ്റൊരു class-ന്റെ properties-ഉം methods-ഉം സ്വീകരിക്കുന്നത്.
+React സാധാരണയായി Composition-നാണ് മുൻഗണന നൽകുന്നത്.
+
+6. Fragments
+Fragments allow us to group multiple elements without adding an extra DOM element.
+അധികമായി ഒരു DOM element സൃഷ്ടിക്കാതെ ഒന്നിലധികം elements ഒരുമിച്ച് group ചെയ്യാൻ Fragments ഉപയോഗിക്കുന്നു.
+
+7. Portals
+Portals allow us to render a component in a different part of the DOM. They are commonly used for modals and popups.
+React component-ന്റെ content DOM-ന്റെ മറ്റൊരു ഭാഗത്ത് render ചെയ്യാൻ Portals സഹായിക്കുന്നു. Modals, popups എന്നിവയ്ക്ക് ഇത് ഉപയോഗിക്കാറുണ്ട്.
+Remember: Portals = Render in another DOM location.
+
+
+8. Lazy Loading — React.lazy
+Lazy Loading loads a component only when it is needed. It helps reduce the initial loading time of an application.
+ആവശ്യമുള്ള സമയത്ത് മാത്രം component load ചെയ്യുന്ന രീതിയാണ് Lazy Loading. ഇത് application-ന്റെ ആദ്യ loading സമയം കുറയ്ക്കാൻ സഹായിക്കുന്നു.
+
+9. Suspense
+Suspense displays fallback content while a lazy-loaded component is loading.
+Lazy-loaded component load ആകുന്ന സമയത്ത് Loading... പോലുള്ള താൽക്കാലിക content കാണിക്കാൻ Suspense ഉപയോഗിക്കുന്നു.
+
+10. Error Boundaries
+Error Boundaries catch rendering errors in child components and display a fallback UI.
+Child components-ൽ render ചെയ്യുമ്പോൾ error സംഭവിച്ചാൽ അത് കൈകാര്യം ചെയ്ത് പകരം ഒരു UI കാണിക്കാൻ Error Boundaries സഹായിക്കുന്നു.
+Example: Something went wrong!
+Remember: Error = Fallback UI.
+
+11. React.memo
+React.memo helps prevent unnecessary re-renders when a component's props have not changed.
+Component-ന്റെ props മാറിയിട്ടില്ലെങ്കിൽ അനാവശ്യമായി വീണ്ടും render ആകുന്നത് ഒഴിവാക്കാൻ React.memo സഹായിക്കുന്നു.
+
+
+12. Folder Architecture Best Practices
+Folder architecture means organizing files and folders properly. It makes the project easier to understand, maintain, and reuse.
+Project-ലെ files-ഉം folders-ഉം ക്രമമായി organize ചെയ്യുന്നതിനെയാണ് Folder Architecture എന്ന് പറയുന്നത്. ഇത് code മനസ്സിലാക്കാനും maintain ചെയ്യാനും reuse ചെയ്യാനും എളുപ്പമാക്കുന്നു.
+
+- components/ — Reusable components
+- pages/ — Page components
+- context/ — Context files
+- hooks/ — Custom Hooks
+- assets/ — Images, icons
+- App.jsx — പ്രധാന application component
+- main.jsx — React application ആരംഭിക്കുന്ന file

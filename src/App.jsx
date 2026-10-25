@@ -1,29 +1,19 @@
-import { useState } from 'react'
-import { Routes,Route } from 'react-router-dom'
-import About from "./Day4/Task/components/About"
-import DashBoard from './Day4/Task/components/DashBoard'
-import Home from './Day4/Task/components/Home'
-import Products from "./Day4/Task/components/Products"
-import ProductDetails from "./Day4/Task/components/ProductDetails"
-import Login from './Day4/Task/components/Login'
-import ProtectedRoute from './Day4/Task/components/ProtectedRoute'
-
+import { CartContext } from "./Day5/Task/context/CartContext"
+import CartCount from "./Day5/Task/components/CartCount"
+import ProductCard from "./Day5/Task/components/ProductCard"
+import { lazy,Suspense, useState } from "react"
+const About=lazy(()=>import("./Day5/Task/pages/About"))
 function App() {
-  const [isLoggedIn,setIsLoggedIn]=useState(false)
+  const [name,setName]=useState("Safreen")
   return (
     <div>
-<Routes>
-  <Route path='/' element={<Home/>} />
-  <Route path='/about' element={<About/>}/>
-  <Route path='/products' element={<Products/>}/>
-  <Route path='/products/:id' element={<ProductDetails/>}/>
-  <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
-  <Route path='/dashboard' element={<ProtectedRoute isLoggedIn={isLoggedIn}>
-    <DashBoard/>
-  </ProtectedRoute>
-  }
-  />
-</Routes>
+      <CartContext>
+        <CartCount/>
+      </CartContext>
+      <Suspense fallback={<h1>Loading...</h1>}>
+      <About/>
+      </Suspense>
+      <ProductCard name={name} setName={setName}/>
     </div>
   )
 }
