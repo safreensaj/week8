@@ -1,21 +1,21 @@
-import { CartContext } from "./Day5/Task/context/CartContext"
-import CartCount from "./Day5/Task/components/CartCount"
-import ProductCard from "./Day5/Task/components/ProductCard"
-import { lazy,Suspense, useState } from "react"
-const About=lazy(()=>import("./Day5/Task/pages/About"))
-function App() {
-  const [name,setName]=useState("Safreen")
+ import Login from "./Project/Pages/Login";
+ import Products from "./Project/Pages/Products";
+ import { Routes,Route } from "react-router-dom";
+ import ProtuctedRoute from "./Project/components/ProtectedRoute";
+ import ProductDetails from "./Project/Pages/ProductDetails";
+ import Cart from "./Project/Pages/Cart";
+function App(){
   return (
-    <div>
-      <CartContext>
-        <CartCount/>
-      </CartContext>
-      <Suspense fallback={<h1>Loading...</h1>}>
-      <About/>
-      </Suspense>
-      <ProductCard name={name} setName={setName}/>
-    </div>
-  )
+    <Routes>
+<Route path="/" element={<Login/>}/>
+<Route path="/products" element={
+  <ProtuctedRoute>
+    <Products/>
+  </ProtuctedRoute>
+}/>
+<Route path="/products/:id" element={<ProductDetails/>}/>
+<Route path="/cart" element={<Cart/>}/>
+    </Routes>
+      )
 }
-
-export default App
+export default App;
